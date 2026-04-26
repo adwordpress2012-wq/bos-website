@@ -25,7 +25,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-[#000C26] text-[#13327C]">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 md:px-6">
         {/* Logo + brand */}
-        <Link href="#home" className="flex items-center gap-2.5 py-1" aria-label={brand.name}>
+        <Link href="#home" className="logo-container flex items-center gap-2.5 py-1" aria-label={brand.name}>
           <span className="relative h-12 w-12 shrink-0">
             <Image
               src={brand.logoSrc}
@@ -37,10 +37,10 @@ export function Navbar() {
             />
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="rounded bg-[#FFD600] px-2 font-display text-2xl font-extrabold tracking-tight text-[#13327C]">
+            <span className="logo-title font-display text-2xl font-extrabold tracking-tight">
               {brand.name}
             </span>
-            <span className="rounded bg-[#FFD600] px-2 text-[11px] font-medium text-[#13327C]/90">
+            <span className="logo-subtitle text-[11px] font-medium">
               {brand.tagline}
             </span>
           </span>

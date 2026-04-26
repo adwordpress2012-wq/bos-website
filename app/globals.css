@@ -85,6 +85,21 @@
   background-repeat: no-repeat;
 }
 
+/* Header logo text styles with optional yellow background variant */
+.logo-container .logo-title,
+.logo-container .logo-subtitle {
+  color: #ffd600;
+}
+
+.logo-container.bg-yellow .logo-title,
+.logo-container.bg-yellow .logo-subtitle {
+  background-color: #ffd600;
+  color: #13327c;
+  border-radius: 0.375rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 /* Glowing pulsing CTA used by the hero "Call Micah" button. */
 @keyframes bos-glow-pulse {
   0%, 100% {
