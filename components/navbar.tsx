@@ -7,8 +7,8 @@
  * Logo, brand name, and nav links are sourced from `lib/tenant-config.ts`.
  * To swap the logo per-tenant, replace `/public/bos-logo-dark.png`.
  *
- * Visual note: navbar background matches the hero navy so the BOS logo
- * (which already has a navy starfield background) blends seamlessly.
+ * Visual note: navbar background uses the dominant navy sampled from the
+ * current logo image (#000C26) so the logo blends into the header.
  */
 
 import Image from "next/image"
@@ -22,25 +22,25 @@ export function Navbar() {
   const { brand, nav, contact } = tenantConfig
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-accent/95 text-accent-foreground backdrop-blur supports-[backdrop-filter]:bg-accent/80">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
-        {/* Logo + brand — bigger logo image blends into navy background */}
-        <Link href="#home" className="flex items-center gap-3" aria-label={brand.name}>
-          <span className="relative h-14 w-14 shrink-0 overflow-hidden">
+    <header className="sticky top-0 z-50 w-full bg-[#000C26] text-[#13327C]">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 md:px-6">
+        {/* Logo + brand */}
+        <Link href="#home" className="flex items-center gap-2.5 py-1" aria-label={brand.name}>
+          <span className="relative h-12 w-12 shrink-0">
             <Image
               src={brand.logoSrc}
               alt={brand.logoAlt}
               fill
-              sizes="56px"
-              className="object-cover"
+              sizes="48px"
+              className="object-contain"
               priority
             />
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="font-display text-2xl font-extrabold tracking-tight">
+            <span className="rounded bg-[#FFD600] px-2 font-display text-2xl font-extrabold tracking-tight text-[#13327C]">
               {brand.name}
             </span>
-            <span className="text-[11px] font-medium text-primary/90">
+            <span className="rounded bg-[#FFD600] px-2 text-[11px] font-medium text-[#13327C]/90">
               {brand.tagline}
             </span>
           </span>
@@ -52,7 +52,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-accent-foreground/75 transition-colors hover:text-primary"
+              className="rounded bg-[#FFD600] px-2 py-1 text-sm font-semibold text-[#13327C] transition-opacity hover:opacity-85"
             >
               {item.label}
             </Link>
@@ -70,7 +70,7 @@ export function Navbar() {
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-accent-foreground md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#FFD600] md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -82,14 +82,14 @@ export function Navbar() {
 
       {/* Mobile nav */}
       {open && (
-        <div className="border-t border-white/5 bg-accent md:hidden">
+        <div className="bg-[#000C26] md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-accent-foreground/80 hover:bg-white/5 hover:text-primary"
+                className="rounded-md bg-[#FFD600] px-3 py-2 text-sm font-semibold text-[#13327C] hover:opacity-85"
               >
                 {item.label}
               </Link>

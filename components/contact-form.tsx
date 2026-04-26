@@ -1,32 +1,14 @@
-"use client"
-
 /**
  * MASTER TEMPLATE: BOS – Book a quick chat
  *
- * TODO: Tenant Replace Here
- * Wire `handleSubmit` to your backend (e.g. a Next.js Server Action,
- * Supabase insert, or HubSpot endpoint). Contact info is configured
- * in `lib/tenant-config.ts → tenantConfig.contact`.
+ * Contact form submits via mailto for lightweight lead capture.
  */
 
-import { useState } from "react"
-import { Mail, Phone, MapPin, Send, Check } from "lucide-react"
+import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { tenantConfig } from "@/lib/tenant-config"
 
 export function ContactForm() {
   const { contact } = tenantConfig
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setLoading(true)
-    // TODO: Tenant Replace Here — connect to your backend / CRM
-    await new Promise((r) => setTimeout(r, 700))
-    setLoading(false)
-    setSubmitted(true)
-    ;(e.target as HTMLFormElement).reset()
-  }
 
   return (
     <section
@@ -66,10 +48,10 @@ export function ContactForm() {
                   <Mail className="h-4 w-4" />
                 </span>
                 <a
-                  href={`mailto:${contact.email}`}
+                  href="mailto:adwordpress2012@gmail.com"
                   className="font-medium text-foreground hover:text-primary"
                 >
-                  {contact.email}
+                  adwordpress2012@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -83,64 +65,44 @@ export function ContactForm() {
 
           {/* Form */}
           <div className="rounded-3xl border border-primary/20 bg-card p-6 shadow-[0_0_60px_rgba(255,214,0,0.06)] md:p-8">
-            {submitted ? (
-              <div className="flex h-full flex-col items-center justify-center py-8 text-center">
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Check className="h-7 w-7" strokeWidth={3} />
-                </span>
-                <h3 className="mt-4 font-display text-2xl font-bold text-foreground">
-                  Thanks — we&apos;ll be in touch
-                </h3>
-                <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-                  We&apos;ll reach out shortly to set up your quick chat.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="mt-6 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                >
-                  Send another message
-                </button>
+            <form
+              action="mailto:adwordpress2012@gmail.com"
+              method="POST"
+              encType="text/plain"
+              className="grid gap-4"
+            >
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field id="name" label="Name" type="text" required />
+                <Field id="email" label="Email" type="email" required />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="grid gap-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Field id="name" label="Name" type="text" required />
-                  <Field id="business" label="Business name" type="text" required />
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Field id="email" label="Email" type="email" required />
-                  <Field id="phone" label="Phone" type="tel" />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-foreground"
-                  >
-                    What does your business do?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="e.g. I run a barber shop and miss calls when I'm with a client."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-1.5 block text-sm font-medium text-foreground"
                 >
-                  {loading ? "Sending…" : "Book quick chat"}
-                  <Send className="h-4 w-4" />
-                </button>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  By submitting, you agree to our Terms and Privacy Policy.
-                </p>
-              </form>
-            )}
+                  Message
+                  <span className="ml-0.5 text-primary">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  placeholder="Tell us about your business and what you need."
+                />
+              </div>
+              <button
+                type="submit"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+              >
+                Send Message
+                <Send className="h-4 w-4" />
+              </button>
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                This opens your email app and sends your message to adwordpress2012@gmail.com.
+              </p>
+            </form>
           </div>
         </div>
       </div>

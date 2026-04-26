@@ -97,12 +97,17 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-accent-foreground/10 pt-6 text-sm text-accent-foreground/70 md:flex-row md:items-center">
-          <Link
-            href={footer.poweredByUrl}
-            className="font-medium transition-colors hover:text-primary"
-          >
-            {footer.poweredBy}
-          </Link>
+          <div className="flex flex-col items-start gap-2">
+            <p className="text-sm text-accent-foreground/80">
+              info@bookos.com.au   ABN: 87 754 544 171
+            </p>
+            <Link
+              href={footer.poweredByUrl}
+              className="font-medium transition-colors hover:text-primary"
+            >
+              {footer.poweredBy}
+            </Link>
+          </div>
           <ul className="flex items-center gap-5">
             {footer.legalLinks.map((l) => (
               <li key={l.href}>

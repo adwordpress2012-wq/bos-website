@@ -31,11 +31,15 @@ export const metadata: Metadata = {
     siteName: tenantConfig.brand.name,
     type: "website",
   },
-  icons: { icon: tenantConfig.brand.logoSrc },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.png",
+  },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#14213D",
+  themeColor: "#FFD600",
   width: "device-width",
   initialScale: 1,
 }

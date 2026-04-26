@@ -23,6 +23,7 @@ import { MultiTenantSection } from "@/components/multi-tenant-section"
 import { AiSection } from "@/components/ai-section"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
+import { MicahWidget } from "@/components/micah-widget"
 
 export default function HomePage() {
   return (
@@ -35,6 +36,7 @@ export default function HomePage() {
       <MultiTenantSection />
       <AiSection />
       <ContactForm />
+      <MicahWidget />
       <Footer />
     </main>
   )
