@@ -12,6 +12,25 @@ export function MicahWidget() {
       return
     }
 
+    const hasSecretKey =
+      MICAH_WIDGET_SCRIPT_SRC.includes("sk-proj-") ||
+      MICAH_WIDGET_SCRIPT_SRC.includes("sk-")
+    const isHttpUrl = /^https?:\/\//i.test(MICAH_WIDGET_SCRIPT_SRC)
+
+    if (hasSecretKey) {
+      console.warn(
+        "Security Warning: Do NOT put sk/sk-proj keys in NEXT_PUBLIC_* variables. Use a public Micah widget URL.",
+      )
+      return
+    }
+
+    if (!isHttpUrl) {
+      console.warn(
+        "Micah Widget Warning: NEXT_PUBLIC_MICAH_WIDGET_SCRIPT_SRC must be a full http(s) script URL.",
+      )
+      return
+    }
+
     if (
       process.env.NODE_ENV === "development" &&
       MICAH_WIDGET_SCRIPT_SRC.includes("sk-proj-")

@@ -4,6 +4,7 @@
  */
 import type { Metadata, Viewport } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
+import { MicahWidget } from "@/components/micah-widget"
 import { tenantConfig } from "@/lib/tenant-config"
 import "./globals.css"
 
@@ -56,6 +57,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background text-foreground font-sans">
         {children}
+        <MicahWidget />
       </body>
     </html>
   )

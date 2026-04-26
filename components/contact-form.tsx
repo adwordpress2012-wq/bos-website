@@ -1,3 +1,5 @@
+"use client"
+
 /**
  * MASTER TEMPLATE: BOS – Book a quick chat
  *
@@ -9,6 +11,17 @@ import { tenantConfig } from "@/lib/tenant-config"
 
 export function ContactForm() {
   const { contact } = tenantConfig
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const name = String(formData.get("name") ?? "")
+    const email = String(formData.get("email") ?? "")
+    const message = String(formData.get("message") ?? "")
+    const subject = encodeURIComponent(`BOS enquiry from ${name || "Website visitor"}`)
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
+    window.location.href = `mailto:adwordpress2012@gmail.com?subject=${subject}&body=${body}`
+  }
 
   return (
     <section
@@ -65,12 +78,7 @@ export function ContactForm() {
 
           {/* Form */}
           <div className="rounded-3xl border border-primary/20 bg-card p-6 shadow-[0_0_60px_rgba(255,214,0,0.06)] md:p-8">
-            <form
-              action="mailto:adwordpress2012@gmail.com"
-              method="POST"
-              encType="text/plain"
-              className="grid gap-4"
-            >
+            <form onSubmit={handleSubmit} className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field id="name" label="Name" type="text" required />
                 <Field id="email" label="Email" type="email" required />
