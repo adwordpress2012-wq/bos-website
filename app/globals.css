@@ -1,0 +1,118 @@
+/* ============================================================================
+ * MASTER TEMPLATE: BOS — AI Business Solution — bos.com.au
+ * Brand tokens — change these to rebrand for a new tenant.
+ *
+ * Theme: full-site navy. Page background, cards, and muted surfaces are all
+ * tiered shades of navy so every section inherits the dark theme automatically.
+ * ========================================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* TODO: Tenant Replace Here — brand palette */
+    --primary: 47 100% 50%;            /* #FFD600 yellow */
+    --primary-foreground: 222 65% 11%; /* deep navy on yellow */
+
+    /* Navy used by navbar, hero and footer — deepest navy */
+    --accent: 222 65% 11%;             /* #0B1733 */
+    --accent-foreground: 0 0% 100%;    /* white on navy */
+
+    /* Page background — same deep navy so navbar blends seamlessly */
+    --background: 222 65% 11%;
+    --foreground: 0 0% 98%;            /* near-white text on navy */
+
+    /* Cards — slightly lighter navy for subtle tiering */
+    --card: 222 50% 16%;               /* #1A2A52 */
+    --card-foreground: 0 0% 98%;
+
+    /* Muted surfaces (alt-stripe sections) */
+    --muted: 222 55% 14%;              /* between accent and card */
+    --muted-foreground: 220 20% 72%;   /* soft blue-grey body text */
+
+    /* Hairline borders on dark — white at low alpha resolved as navy-grey */
+    --border: 222 30% 28%;
+    --input: 222 30% 28%;
+    --ring: 47 100% 50%;
+
+    --radius: 0.875rem;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Form controls inherit dark theme */
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+/* Subtle starfield used behind dark/navy sections — purely decorative.
+ * Mirrors the cosmic feel of the BOS logo without overpowering content. */
+.bg-starfield {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255, 214, 0, 0.55) 50%, transparent 60%),
+    radial-gradient(1px 1px at 70% 80%, rgba(255, 255, 255, 0.6) 50%, transparent 60%),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.4) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 85% 20%, rgba(255, 214, 0, 0.7) 50%, transparent 60%),
+    radial-gradient(1px 1px at 10% 80%, rgba(255, 255, 255, 0.5) 50%, transparent 60%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255, 255, 255, 0.45) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 30% 55%, rgba(255, 214, 0, 0.5) 50%, transparent 60%);
+  background-repeat: no-repeat;
+}
+
+/* Glowing pulsing CTA used by the hero "Call Micah" button. */
+@keyframes bos-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(255, 214, 0, 0.55),
+      0 0 32px rgba(255, 214, 0, 0.55),
+      0 0 4px rgba(255, 214, 0, 0.9) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 0 18px rgba(255, 214, 0, 0),
+      0 0 56px rgba(255, 214, 0, 0.85),
+      0 0 6px rgba(255, 255, 200, 1) inset;
+  }
+}
+
+.btn-glow-pulse {
+  animation: bos-glow-pulse 2.4s ease-in-out infinite;
+}
+
+/* Micah voice waveform — vertical bars pulsing at staggered timings to
+ * suggest live voice activity. Used in the hero where the logo orb was. */
+@keyframes bos-wave {
+  0%, 100% { transform: scaleY(0.25); opacity: 0.7; }
+  50%      { transform: scaleY(1);    opacity: 1;   }
+}
+
+.bos-wave-bar {
+  transform-origin: center;
+  animation: bos-wave 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-glow-pulse {
+    animation: none;
+    box-shadow: 0 0 32px rgba(255, 214, 0, 0.6);
+  }
+  .bos-wave-bar {
+    animation: none;
+    transform: scaleY(0.6);
+  }
+}
