@@ -24,7 +24,7 @@ export function MicahSection() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:px-6 lg:grid-cols-2 lg:items-center">
         {/* Visual */}
         <div className="relative">
-          <div className="relative mx-auto flex aspect-square w-full max-w-md items-center justify-center rounded-3xl border border-primary/20 bg-card text-card-foreground shadow-[0_0_60px_rgba(255,214,0,0.08)]">
+          <div className="relative mx-auto flex aspect-square w-full max-w-md items-center justify-center rounded-3xl border border-primary/20 bg-card text-card-foreground shadow-[0_0_60px_rgba(0,255,157,0.14)]">
             <div className="bg-starfield pointer-events-none absolute inset-0 rounded-3xl opacity-70" aria-hidden />
 
             {/* Mic orb */}
@@ -33,7 +33,7 @@ export function MicahSection() {
               onClick={() => setListening((v) => !v)}
               aria-pressed={listening}
               aria-label={listening ? "Stop listening" : "Talk to Micah"}
-              className="group relative z-10 flex h-40 w-40 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_60px_rgba(255,214,0,0.45)] transition-transform hover:scale-105"
+              className="group relative z-10 flex h-40 w-40 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_0_60px_rgba(0,255,157,0.45)] transition-transform hover:scale-105"
             >
               {listening && (
                 <>

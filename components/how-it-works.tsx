@@ -5,50 +5,48 @@
  * -> books straight into Calendly / Google Calendar -> owner gets notified.
  */
 
-import { PhoneCall, MessageCircle, CalendarCheck, BellRing } from "lucide-react"
+import { MessageSquareReply, CalendarCheck, BellRing, Inbox } from "lucide-react"
 
 const steps = [
   {
-    icon: PhoneCall,
+    icon: MessageSquareReply,
     step: "01",
-    title: "A customer calls or chats",
-    desc: "Inbound voice calls and website chat all route to Micah — no menus, no holds.",
-  },
-  {
-    icon: MessageCircle,
-    step: "02",
-    title: "Micah picks up the conversation",
-    desc: "She greets your customer, answers their questions, and qualifies the booking.",
+    title: "24/7 instant reply on WhatsApp & SMS",
+    desc: "Micah responds in seconds so no enquiry sits unread or goes cold.",
   },
   {
     icon: CalendarCheck,
-    step: "03",
-    title: "She books straight into your calendar",
-    desc: "Calendly or Google Calendar — Micah finds the slot and locks the appointment.",
+    step: "02",
+    title: "Bookings auto-synced to your calendar",
+    desc: "Confirmed jobs and appointments are written directly into your schedule.",
   },
   {
     icon: BellRing,
+    step: "03",
+    title: "Owner notified instantly",
+    desc: "Receive real-time booking alerts by SMS and email.",
+  },
+  {
+    icon: Inbox,
     step: "04",
-    title: "You get notified instantly",
-    desc: "Email confirmation lands the moment it's booked. Mobile app coming soon.",
+    title: "All conversations in one inbox",
+    desc: "No staff needed to triage messages across channels.",
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section id="how" className="scroll-mt-20 bg-background py-20 md:py-28">
+    <section id="features" className="scroll-mt-20 bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-            How it works
+            Features & outcomes
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-balance text-foreground md:text-5xl">
-            From missed call to booked appointment in{" "}
-            <span className="text-primary">under a minute</span>
+            Built to protect every enquiry and convert it into revenue
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            BOS plugs into the tools you already use, so you can stay on the
-            tools, in the chair, or behind the counter — never the phone.
+            Stop lost bookings, missed calls, and unread DMs with one always-on AI receptionist.
           </p>
         </div>
 

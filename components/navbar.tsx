@@ -14,7 +14,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X, Sparkles } from "lucide-react"
 import { tenantConfig } from "@/lib/tenant-config"
 
 export function Navbar() {
@@ -22,7 +22,7 @@ export function Navbar() {
   const { brand, nav, contact } = tenantConfig
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#000C26] text-[#13327C]">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/15 bg-[#0E131B]/90 text-white backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 md:px-6">
         {/* Logo + brand */}
         <Link href="#home" className="logo-container flex items-center gap-2.5 py-1" aria-label={brand.name}>
@@ -52,7 +52,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded bg-[#FFD600] px-2 py-1 text-sm font-semibold text-[#13327C] transition-opacity hover:opacity-85"
+              className="text-sm font-semibold text-white/80 transition-colors hover:text-primary"
             >
               {item.label}
             </Link>
@@ -63,14 +63,14 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={contact.phoneTel}
-            className="hidden items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
+            className="btn-glow-pulse hidden items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
           >
-            <Phone className="h-4 w-4" />
-            Call Micah
+            <Sparkles className="h-4 w-4" />
+            Book Micah
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#FFD600] md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-primary md:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -82,25 +82,32 @@ export function Navbar() {
 
       {/* Mobile nav */}
       {open && (
-        <div className="bg-[#000C26] md:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3" aria-label="Mobile">
+        <div className="fixed inset-0 z-[60] bg-[#0B0E14] md:hidden">
+          <nav className="mx-auto flex h-full max-w-7xl flex-col gap-1 px-6 py-24" aria-label="Mobile">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md bg-[#FFD600] px-3 py-2 text-sm font-semibold text-[#13327C] hover:opacity-85"
+                className="rounded-md px-3 py-3 text-xl font-semibold text-white transition-colors hover:text-primary"
               >
                 {item.label}
               </Link>
             ))}
             <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="btn-glow-pulse mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+            >
+              <Sparkles className="h-4 w-4" />
+              Get Started
+            </a>
+            <a
               href={contact.phoneTel}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 px-5 py-3 text-center text-sm font-semibold text-primary"
             >
-              <Phone className="h-4 w-4" />
-              Call Micah · {contact.phone}
+              Book Micah · {contact.phone}
             </a>
           </nav>
         </div>

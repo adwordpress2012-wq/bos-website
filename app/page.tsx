@@ -21,6 +21,11 @@ import { MicahSection } from "@/components/micah-section"
 import { IndustriesGrid } from "@/components/industries-grid"
 import { MultiTenantSection } from "@/components/multi-tenant-section"
 import { AiSection } from "@/components/ai-section"
+import { ResultsSection } from "@/components/results-section"
+import { LiveDemoSection } from "@/components/live-demo-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
+import { PricingSection } from "@/components/pricing-section"
+import { InsightsSection } from "@/components/insights-section"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
 
@@ -30,10 +35,15 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <HowItWorks />
+      <ResultsSection />
+      <LiveDemoSection />
       <MicahSection />
+      <TestimonialsSection />
       <IndustriesGrid />
       <MultiTenantSection />
       <AiSection />
+      <PricingSection />
+      <InsightsSection />
       <ContactForm />
       <Footer />
     </main>

@@ -89,44 +89,44 @@ export type TenantConfig = {
  * ──────────────────────────────────────────────────────────────────────────── */
 export const tenantConfig: TenantConfig = {
   brand: {
-    name: "BOS",
-    tagline: "AI Business Solution",
-    logoSrc: "/bos-logo-dark.png", // TODO: Tenant Replace Here
-    logoAlt: "BOS logo",
-    domain: "bos.com.au",
+    name: "BookOS",
+    tagline: "Micah AI Receptionist",
+    logoSrc: "/directiveos-logo.png", // TODO: Tenant Replace Here
+    logoAlt: "BookOS Micah logo",
+    domain: "bookos.com.au",
   },
 
   nav: [
-    { label: "Home", href: "#home" },
-    { label: "How it Works", href: "#how" },
-    { label: "Micah", href: "#micah" },
-    { label: "Contact", href: "#contact" },
+    { label: "Templates", href: "#features" },
+    { label: "Live Demos", href: "#live-demo" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Resources", href: "#insights" },
   ],
 
   hero: {
-    eyebrow: "Welcome to",
-    headlinePrimary: "BOS",
-    headlineHighlight: "AI Business Solution",
+    eyebrow: "Micah by BookOS",
+    headlinePrimary: "Never Lose a Booking.",
+    headlineHighlight: "Instantly Convert Every Message into Revenue.",
     subheadline:
-      "Micah, your AI receptionist, answers every call and chat — books the appointment straight into your Calendly or Google Calendar, and emails you the moment it's locked in. Built for hairdressers, barbers, tradies, cafes and small business owners.",
+      "Micah answers your customers instantly on WhatsApp and SMS, books appointments, fills your calendar, and never lets a paying customer slip away. Your 24/7 receptionist for restaurants, salons, clinics, trades, and local businesses.",
     primaryCta: {
-      label: "Call Micah",
-      sublabel: "02 5850 4038",
-      href: "tel:+61258504038",
+      label: "Book Micah Now",
+      sublabel: "Fast setup for local businesses",
+      href: "#contact",
     },
-    secondaryCta: { label: "Book a quick chat", href: "#book" },
+    secondaryCta: { label: "Chat with Micah", href: "#live-demo" },
   },
 
   micah: {
     name: "Micah",
     title: "Your AI Receptionist",
     description:
-      "When a customer calls or chats your business, Micah picks up — day or night. She answers questions, books the appointment into your calendar, and sends you an email so nothing slips through the cracks.",
+      "Micah handles every customer enquiry in seconds across chat and voice so your team can stay focused on service delivery, not inbox triage.",
     capabilities: [
-      "Picks up every voice call and web chat, 24/7",
-      "Books appointments straight into Calendly or Google Calendar",
-      "Emails you the moment a booking is confirmed",
-      "Mobile app notifications coming soon",
+      "24/7 instant replies on WhatsApp, SMS, and web chat",
+      "Bookings auto-synced to your calendar instantly",
+      "Owner notifications by SMS and email in real time",
+      "All customer conversations in one unified inbox",
     ],
   },
 
@@ -190,22 +190,22 @@ export const tenantConfig: TenantConfig = {
   ],
 
   contact: {
-    email: "hello@bos.com.au",
-    phone: "02 5850 4038",
-    phoneTel: "tel:+61258504038",
+    email: "jayson@bookos.com.au",
+    phone: "02 8880 4339",
+    phoneTel: "tel:+61288804339",
     address: "Sydney, NSW, Australia",
   },
 
   footer: {
-    poweredBy: "Powered by BOS",
-    poweredByUrl: "https://bos.com.au",
+    poweredBy: "Powered by Directive OS",
+    poweredByUrl: "https://directiveos.com.au",
     socials: [
       { label: "Twitter", href: "https://twitter.com/" },
       { label: "Instagram", href: "https://instagram.com/" },
       { label: "LinkedIn", href: "https://linkedin.com/" },
     ],
     legalLinks: [
-      { label: "Terms", href: "/terms" },
+      { label: "Terms", href: "https://directiveos.com.au/terms" },
       { label: "Privacy", href: "/privacy" },
     ],
   },

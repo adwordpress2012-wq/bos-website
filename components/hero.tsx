@@ -11,7 +11,7 @@
  */
 
 import Link from "next/link"
-import { Phone, Sparkles, Mic } from "lucide-react"
+import { MessageCircle, Sparkles, Mic } from "lucide-react"
 import { tenantConfig } from "@/lib/tenant-config"
 
 export function Hero() {
@@ -53,25 +53,26 @@ export function Hero() {
             {hero.eyebrow}
           </span>
 
-          {/* H1 — "BOS" wordmark */}
-          <h1 className="mt-6 font-display text-[clamp(3.5rem,10vw,7rem)] font-black leading-[0.9] tracking-tight text-balance text-accent-foreground">
+          <h1 className="mt-6 font-display text-[clamp(2.25rem,6vw,4.5rem)] font-black leading-[1.02] tracking-tight text-balance text-accent-foreground">
             {hero.headlinePrimary}
           </h1>
 
-          {/* Yellow tagline — "AI Business Solution" */}
-          <p className="mt-2 font-display text-2xl font-bold tracking-tight text-primary md:text-3xl lg:text-4xl">
+          <p className="mt-3 font-display text-xl font-bold tracking-tight text-primary md:text-3xl">
             {hero.headlineHighlight}
           </p>
 
-          {/* Glowing pulsing yellow CTA — tel: link */}
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-accent-foreground/85 md:text-lg">
+            {hero.subheadline}
+          </p>
+
           <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <a
+            <Link
               href={hero.primaryCta.href}
               className="btn-glow-pulse group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-base font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 md:text-lg"
               aria-label={`${hero.primaryCta.label} on ${hero.primaryCta.sublabel}`}
             >
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 ring-1 ring-primary-foreground/20">
-                <Phone className="h-4 w-4" />
+                <Sparkles className="h-4 w-4" />
               </span>
               <span className="flex flex-col items-start leading-tight">
                 <span>{hero.primaryCta.label}</span>
@@ -79,19 +80,19 @@ export function Hero() {
                   {hero.primaryCta.sublabel}
                 </span>
               </span>
-            </a>
+            </Link>
 
             <Link
               href={hero.secondaryCta.href}
-              className="inline-flex items-center gap-2 rounded-full border border-accent-foreground/25 px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-5 py-3 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/20"
             >
+              <MessageCircle className="h-4 w-4" />
               {hero.secondaryCta.label}
             </Link>
           </div>
 
-          {/* Supporting paragraph */}
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-accent-foreground/80 md:text-lg">
-            {hero.subheadline}
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-accent-foreground/75 md:text-base">
+            Stop lost bookings, missed calls, and unread DMs - Micah brings you more customers, more revenue, automatically.
           </p>
 
           {/* Trust strip */}
@@ -101,12 +102,12 @@ export function Hero() {
               <dd className="mt-1 font-display text-2xl font-bold">24/7</dd>
             </div>
             <div>
-              <dt className="text-accent-foreground/60">Booked instantly</dt>
-              <dd className="mt-1 font-display text-2xl font-bold">98%</dd>
+              <dt className="text-accent-foreground/60">Avg booking uplift</dt>
+              <dd className="mt-1 font-display text-2xl font-bold">+20%</dd>
             </div>
             <div>
-              <dt className="text-accent-foreground/60">Setup time</dt>
-              <dd className="mt-1 font-display text-2xl font-bold">10 min</dd>
+              <dt className="text-accent-foreground/60">Missed calls</dt>
+              <dd className="mt-1 font-display text-2xl font-bold">0</dd>
             </div>
           </dl>
         </div>
@@ -134,7 +135,7 @@ export function Hero() {
                   style={{
                     height: `${bar.h}px`,
                     animationDelay: bar.d,
-                    boxShadow: "0 0 18px rgba(255, 214, 0, 0.55)",
+                    boxShadow: "0 0 18px rgba(0, 255, 157, 0.55)",
                   }}
                 />
               ))}

@@ -35,12 +35,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
-    apple: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#FFD600",
+  themeColor: "#00FF9D",
   width: "device-width",
   initialScale: 1,
 }

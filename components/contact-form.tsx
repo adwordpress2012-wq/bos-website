@@ -18,9 +18,9 @@ export function ContactForm() {
     const name = String(formData.get("name") ?? "")
     const email = String(formData.get("email") ?? "")
     const message = String(formData.get("message") ?? "")
-    const subject = encodeURIComponent(`BOS enquiry from ${name || "Website visitor"}`)
+    const subject = encodeURIComponent(`Micah enquiry from ${name || "Website visitor"}`)
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
-    window.location.href = `mailto:adwordpress2012@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -36,12 +36,10 @@ export function ContactForm() {
               Get in touch
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-balance text-foreground md:text-5xl">
-              Book a quick chat with the BOS team
+              Stop missing customers. Start booking them.
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
-              Tell us about your business — we&apos;ll show you how Micah
-              answers your calls and books appointments. Or skip the form and
-              call Micah right now.
+              Tell us about your business and we&apos;ll tailor Micah to your booking flow, channels, and team.
             </p>
 
             <ul className="mt-8 space-y-4 text-sm">
@@ -61,10 +59,10 @@ export function ContactForm() {
                   <Mail className="h-4 w-4" />
                 </span>
                 <a
-                  href="mailto:adwordpress2012@gmail.com"
+                  href={`mailto:${contact.email}`}
                   className="font-medium text-foreground hover:text-primary"
                 >
-                  adwordpress2012@gmail.com
+                  {contact.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -77,7 +75,7 @@ export function ContactForm() {
           </div>
 
           {/* Form */}
-          <div className="rounded-3xl border border-primary/20 bg-card p-6 shadow-[0_0_60px_rgba(255,214,0,0.06)] md:p-8">
+          <div className="rounded-3xl border border-primary/20 bg-card p-6 shadow-[0_0_60px_rgba(0,255,157,0.14)] md:p-8">
             <form onSubmit={handleSubmit} className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field id="name" label="Name" type="text" required />
@@ -104,11 +102,11 @@ export function ContactForm() {
                 type="submit"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Send Message
+                Book Micah Now
                 <Send className="h-4 w-4" />
               </button>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                This opens your email app and sends your message to adwordpress2012@gmail.com.
+                This opens your email app and sends your message to {contact.email}.
               </p>
             </form>
           </div>
