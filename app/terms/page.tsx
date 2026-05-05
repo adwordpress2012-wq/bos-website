@@ -18,8 +18,8 @@ export default function TermsPage() {
         </p>
         <p>
           For terms enquiries, contact us at{" "}
-          <a className="text-primary hover:underline" href="mailto:info@bookos.com.au">
-            info@bookos.com.au
+          <a className="text-primary hover:underline" href="mailto:jayson@chatos.com.au">
+            jayson@chatos.com.au
           </a>
           .
         </p>

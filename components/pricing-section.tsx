@@ -1,3 +1,5 @@
+"use client"
+
 import { Check } from "lucide-react"
 import Link from "next/link"
 
@@ -7,6 +9,7 @@ type Plan = {
   setup: string
   cta: string
   href: string
+  stripeUrl?: string
   highlighted?: boolean
   badge?: string
   items: string[]
@@ -17,8 +20,9 @@ const chatPlans: Plan[] = [
     name: "Starter (The Snippet)",
     price: "$149/mo",
     setup: "$0 setup (Founding Member)",
-    cta: "Start Free Trial",
+    cta: "Get Started - $0 Setup",
     href: "#contact",
+    stripeUrl: "https://buy.stripe.com/test_00w9AS9pReVXgPR9eH5wI00",
     badge: "3 spots left",
     items: [
       "300 chats per month",
@@ -88,6 +92,11 @@ const voicePlans = [
 ]
 
 export function PricingSection() {
+  const handlePayment = (url: string) => {
+    // Ensure we track the transition from pricing to the checkout flow.
+    window.location.href = url
+  }
+
   return (
     <section id="pricing" className="scroll-mt-20 bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -126,12 +135,22 @@ export function PricingSection() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href={plan.href}
-                className="btn-glow-pulse mt-7 inline-flex w-full justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
-              >
-                {plan.cta}
-              </Link>
+              {plan.stripeUrl ? (
+                <button
+                  type="button"
+                  onClick={() => handlePayment(plan.stripeUrl!)}
+                  className="btn-glow-pulse mt-7 inline-flex w-full justify-center rounded-full bg-[#00FF9D] px-5 py-3 text-sm font-bold text-black transition hover:opacity-90"
+                >
+                  {plan.cta}
+                </button>
+              ) : (
+                <Link
+                  href={plan.href}
+                  className="btn-glow-pulse mt-7 inline-flex w-full justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
+                >
+                  {plan.cta}
+                </Link>
+              )}
             </article>
           ))}
         </div>

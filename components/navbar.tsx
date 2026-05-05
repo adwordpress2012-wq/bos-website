@@ -20,9 +20,12 @@ import { tenantConfig } from "@/lib/tenant-config"
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { brand, nav, contact } = tenantConfig
+  const mobileLinks = nav.filter((item) =>
+    ["Templates", "Live Demos", "Pricing"].includes(item.label),
+  )
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-primary/15 bg-[#0E131B]/90 text-white backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/15 bg-[#0B0E14] text-white">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 md:px-6">
         {/* Logo + brand */}
         <Link href="#home" className="logo-container flex items-center gap-2.5 py-1" aria-label={brand.name}>
@@ -36,13 +39,8 @@ export function Navbar() {
               priority
             />
           </span>
-          <span className="flex flex-col leading-tight">
-            <span className="logo-title font-display text-2xl font-extrabold tracking-tight">
-              {brand.name}
-            </span>
-            <span className="logo-subtitle text-[11px] font-medium">
-              {brand.tagline}
-            </span>
+          <span className="logo-title font-display text-2xl font-extrabold tracking-tight">
+            {brand.name}
           </span>
         </Link>
 
@@ -82,14 +80,14 @@ export function Navbar() {
 
       {/* Mobile nav */}
       {open && (
-        <div className="fixed inset-0 z-[60] bg-[#0B0E14] md:hidden">
-          <nav className="mx-auto flex h-full max-w-7xl flex-col gap-1 px-6 py-24" aria-label="Mobile">
-            {nav.map((item) => (
+        <div className="border-t border-primary/20 bg-[#0B0E14] shadow-[0_16px_30px_rgba(0,0,0,0.5)] md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-6" aria-label="Mobile">
+            {mobileLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-xl font-semibold text-white transition-colors hover:text-primary"
+                className="rounded-md px-3 py-2.5 text-lg font-semibold text-white transition-colors hover:text-primary"
               >
                 {item.label}
               </Link>
@@ -101,13 +99,6 @@ export function Navbar() {
             >
               <Sparkles className="h-4 w-4" />
               Get Started
-            </a>
-            <a
-              href={contact.phoneTel}
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 px-5 py-3 text-center text-sm font-semibold text-primary"
-            >
-              Book Micah · {contact.phone}
             </a>
           </nav>
         </div>

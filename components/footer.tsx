@@ -41,7 +41,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-accent-foreground/70">
-              {brand.tagline}. Micah turns messages into confirmed bookings for small businesses across Australia.
+              Micah turns messages into confirmed bookings for small businesses across Australia.
             </p>
             <p className="mt-3 inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
               Australia-based local support
@@ -100,15 +100,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-accent-foreground/10 pt-6 text-sm text-accent-foreground/70 md:flex-row md:items-center">
           <div className="flex flex-col items-start gap-2">
-            <p className="text-sm text-accent-foreground/80">
-              {contact.email}   ABN: 87 754 544 171
-            </p>
-            <Link
-              href={footer.poweredByUrl}
-              className="font-medium transition-colors hover:text-primary"
-            >
-              {footer.poweredBy}
-            </Link>
+            <p className="text-sm text-accent-foreground/80">{contact.email}</p>
           </div>
           <ul className="flex items-center gap-5">
             {footer.legalLinks.map((l) => (
@@ -121,7 +113,7 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>© 2026 Directive OS | ABN 87 754 544 171. Built for Australian Small Businesses</li>
+            <li>© 2026 BOS | ABN 87 754 544 171. Built for Australian Small Businesses</li>
           </ul>
         </div>
       </div>

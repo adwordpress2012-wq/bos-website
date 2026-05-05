@@ -89,11 +89,11 @@ export type TenantConfig = {
  * ──────────────────────────────────────────────────────────────────────────── */
 export const tenantConfig: TenantConfig = {
   brand: {
-    name: "BookOS",
-    tagline: "Micah AI Receptionist",
-    logoSrc: "/directiveos-logo.png", // TODO: Tenant Replace Here
-    logoAlt: "BookOS Micah logo",
-    domain: "bookos.com.au",
+    name: "BOS",
+    tagline: "",
+    logoSrc: "/bos-glow-logo.png", // TODO: Tenant Replace Here
+    logoAlt: "BOS glowing logo",
+    domain: "bos.com.au",
   },
 
   nav: [
@@ -104,7 +104,7 @@ export const tenantConfig: TenantConfig = {
   ],
 
   hero: {
-    eyebrow: "Micah by BookOS",
+    eyebrow: "Micah by BOS",
     headlinePrimary: "Never Lose a Booking.",
     headlineHighlight: "Instantly Convert Every Message into Revenue.",
     subheadline:
@@ -190,15 +190,15 @@ export const tenantConfig: TenantConfig = {
   ],
 
   contact: {
-    email: "jayson@bookos.com.au",
+    email: "jayson@chatos.com.au",
     phone: "02 8880 4339",
     phoneTel: "tel:+61288804339",
     address: "Sydney, NSW, Australia",
   },
 
   footer: {
-    poweredBy: "Powered by Directive OS",
-    poweredByUrl: "https://directiveos.com.au",
+    poweredBy: "Powered by BOS",
+    poweredByUrl: "https://bos.com.au",
     socials: [
       { label: "Twitter", href: "https://twitter.com/" },
       { label: "Instagram", href: "https://instagram.com/" },
