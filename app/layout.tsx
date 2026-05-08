@@ -5,7 +5,6 @@
 import type { Metadata, Viewport } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { MicahWidget } from "@/components/micah-widget"
-import { tenantConfig } from "@/lib/tenant-config"
 import "./globals.css"
 
 const fontSans = Inter({
@@ -20,16 +19,17 @@ const fontDisplay = Space_Grotesk({
   display: "swap",
 })
 
-// TODO: Tenant Replace Here — SEO metadata
 export const metadata: Metadata = {
-  title: `${tenantConfig.brand.name} — ${tenantConfig.brand.tagline}`,
-  description: tenantConfig.hero.subheadline,
-  metadataBase: new URL(`https://${tenantConfig.brand.domain}`),
+  title: "BOS | AI Booking System by DOS",
+  description:
+    "BOS powers reservations, appointments, booking flows, and customer scheduling through the DOS ecosystem.",
+  metadataBase: new URL("https://bookos.com.au"),
   openGraph: {
-    title: `${tenantConfig.brand.name} — ${tenantConfig.brand.tagline}`,
-    description: tenantConfig.hero.subheadline,
-    url: `https://${tenantConfig.brand.domain}`,
-    siteName: tenantConfig.brand.name,
+    title: "BOS | AI Booking System by DOS",
+    description:
+      "Booking systems for modern businesses across the DOS platform.",
+    url: "https://bookos.com.au",
+    siteName: "BOS",
     type: "website",
   },
   icons: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#00FF9D",
+  themeColor: "#03050A",
   width: "device-width",
   initialScale: 1,
 }

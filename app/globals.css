@@ -11,30 +11,24 @@
 
 @layer base {
   :root {
-    /* TODO: Tenant Replace Here — brand palette */
-    --primary: 157 100% 50%;           /* #00FF9D mint */
-    --primary-foreground: 220 40% 8%;  /* dark ink on mint */
+    --primary: 188 94% 53%;
+    --primary-foreground: 220 41% 8%;
 
-    /* Navy sampled from logo background */
-    --accent: 240 3% 8%;               /* #18181B */
-    --accent-foreground: 0 0% 100%;    /* white on navy */
+    --accent: 233 39% 9%;
+    --accent-foreground: 0 0% 100%;
 
-    /* Page background — matched to logo navy for seamless blend */
-    --background: 220 26% 6%;          /* #0B0E14 */
-    --foreground: 0 0% 98%;            /* near-white text on navy */
+    --background: 229 57% 4%;
+    --foreground: 0 0% 98%;
 
-    /* Cards — slightly lighter navy for subtle tiering */
-    --card: 240 3% 8%;                 /* #18181B */
+    --card: 232 38% 10%;
     --card-foreground: 0 0% 98%;
 
-    /* Muted surfaces (alt-stripe sections) */
-    --muted: 216 28% 10%;              /* between accent and card */
-    --muted-foreground: 220 20% 72%;   /* soft blue-grey body text */
+    --muted: 229 34% 12%;
+    --muted-foreground: 214 27% 76%;
 
-    /* Hairline borders on dark — white at low alpha resolved as navy-grey */
-    --border: 222 30% 28%;
-    --input: 222 30% 28%;
-    --ring: 157 100% 50%;
+    --border: 218 41% 24%;
+    --input: 218 41% 24%;
+    --ring: 188 94% 53%;
 
     --radius: 0.875rem;
   }
@@ -52,7 +46,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image:
-      linear-gradient(rgba(11, 14, 20, 0.9), rgba(11, 14, 20, 0.9)),
+      linear-gradient(rgba(3, 5, 10, 0.94), rgba(3, 5, 10, 0.94)),
       url("/dark-grid-bg.png");
     background-repeat: repeat, repeat;
     background-size: auto, 600px auto;
@@ -124,6 +118,13 @@
 .bos-wave-bar {
   transform-origin: center;
   animation: bos-wave 1.4s ease-in-out infinite;
+}
+
+.dos-ambient-glow {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(124, 58, 237, 0.25), transparent 42%),
+    radial-gradient(circle at 86% 16%, rgba(20, 184, 166, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(34, 211, 238, 0.14), transparent 44%);
 }
 
 @media (prefers-reduced-motion: reduce) {
