@@ -99,7 +99,7 @@ export const tenantConfig: TenantConfig = {
   nav: [
     { label: "Templates", href: "#features" },
     { label: "Live Demos", href: "#live-demo" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Pricing", href: "https://directiveos.com.au/pricing" },
     { label: "Resources", href: "#insights" },
   ],
 

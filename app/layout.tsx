@@ -4,7 +4,7 @@
  */
 import type { Metadata, Viewport } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
-import { MicahWidget } from "@/components/micah-widget"
+import Script from "next/script"
 import "./globals.css"
 
 const fontSans = Inter({
@@ -57,7 +57,11 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background text-foreground font-sans">
         {children}
-        <MicahWidget />
+        <Script
+          src="https://chatos.com.au/micah-widget.js"
+          data-client-id="micah-demo"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
