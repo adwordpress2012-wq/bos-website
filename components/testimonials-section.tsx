@@ -3,7 +3,7 @@ import { PlayCircle } from "lucide-react"
 const testimonials = [
   {
     quote: "Micah doubled our bookings in the first month!",
-    name: "Sarah M.",
+    name: "Mia R.",
     business: "Glow Beauty Studio",
   },
   {
@@ -44,7 +44,7 @@ export function TestimonialsSection() {
             <p className="font-display text-2xl font-bold text-foreground">
               "Micah doubled our bookings in the first month!"
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">Sarah M. - Glow Beauty Studio</p>
+            <p className="mt-4 text-sm text-muted-foreground">Mia R. - Glow Beauty Studio</p>
           </div>
         </div>
 
